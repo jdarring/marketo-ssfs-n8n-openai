@@ -1,0 +1,754 @@
+{
+  "name": "SSFS",
+  "nodes": [
+    {
+      "parameters": {
+        "multipleMethods": true,
+        "path": ":path",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -688,
+        512
+      ],
+      "id": "a0ad6e08-5ab1-45ab-b70c-ea90fff38d93",
+      "name": "Webhook",
+      "webhookId": "7b7609a8-5f39-4d06-966a-386e8c5b2611"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "16c80ba1-9a4e-43b8-b882-e9cf798e4912",
+                    "leftValue": "={{ $('Webhook').item.json.params.path }}",
+                    "rightValue": "=install",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "install"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "8924b425-fdc5-4a03-b5d3-3f9212f2cd68",
+                    "leftValue": "={{ $('Webhook').item.json.params.path }}",
+                    "rightValue": "getServiceDefinition",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "getServiceDefinition"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Webhook').item.json.params.path }}",
+                    "rightValue": "status",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "769a8d63-55fa-4d52-b3b1-72d128c57b0a"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "status"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "b3cb956d-306a-4993-a0ba-0fc4866540f4",
+                    "leftValue": "={{ $('Webhook').item.json.params.path }}",
+                    "rightValue": "serviceIcon",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "serviceIcon"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "0b0c7cb7-32c5-4129-bcd0-70fdbaf1b60c",
+                    "leftValue": "={{ $('Webhook').item.json.params.path }}",
+                    "rightValue": "brandIcon",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "brandIcon"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "af4ceb4e-2d1a-401f-a874-55c121c63850",
+                    "leftValue": "={{ $('Webhook').item.json.params.path }}",
+                    "rightValue": "getPicklist",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "getPicklist"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "fe414a8c-2532-4e5b-9578-24c66c3ba640",
+                    "leftValue": "={{ $('Webhook').item.json.params.path }}",
+                    "rightValue": "submitAsyncAction",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "submitAsyncAction"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra",
+          "renameFallbackOutput": "Fallback"
+        }
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -224,
+        416
+      ],
+      "id": "56af07a9-10d3-4b4f-b442-26ad363796e9",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\n  \"status\": 200\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.2,
+      "position": [
+        208,
+        272
+      ],
+      "id": "a8274d22-c0cc-4bf7-805b-3541530efdd8",
+      "name": "Status"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"apiName\": \"{{ $('SSFS Config').item.json.apiName }}\",\n  \"provider\": \"{{ $('SSFS Config').item.json.provider }}\",\n  \"i18n\": {\n    \"en_US\": {\n      \"name\": \"{{ $('SSFS Config').item.json.flow.name }}\",\n      \"filterName\": \"{{ $('SSFS Config').item.json.flow.filterName }}\",\n      \"triggerName\": \"{{ $('SSFS Config').item.json.flow.triggerName }}\",\n      \"description\": \"{{ $('SSFS Config').item.json.description }}\"\n    }\n  },\n  \"supportPage\": \"https://openai.kapturall.com/support.html\",\n  \"supportEmail\": \"support@kapturall.com\",\n  \"invocationEndpoint\": \"https://actions.kapturall.com/ssfs/openai/submitAsyncAction\",\n  \"statusEndpoint\": \"https://actions.kapturall.com/ssfs/openai/status\",\n  \"brandIcon\": true,\n  \"serviceIcon\": true,\n  \"authSetting\": {\n    \"authType\": \"apiKey\",\n    \"headerName\": \"{{ $('SSFS Config').item.json.apiKey.name }}\"\n  },\n  \"primaryAttribute\": \"prompt\",\n  \"invocationPayloadDef\": {\n    \"globalAttributes\": [\n      {\n        \"apiName\": \"openai_token\",\n        \"i18n\": {\n          \"en_US\": {\n            \"name\": \"OpenAI API Key\",\n            \"description\": \"Your OpenAI API Key\"\n          }\n        },\n        \"dataType\": \"string\",\n        \"hasPicklist\": false\n      }\n    ],\n    \"flowAttributes\": [\n      {\n        \"apiName\": \"prompt\",\n        \"description\": \"Prompt to send to OpenAI\",\n        \"uiTooltip\": \"Prompt to send to OpenAI\",\n        \"i18n\": {\n          \"en_US\": {\n            \"name\": \"Prompt\",\n            \"description\": \"Additional context for the prompt\",\n            \"uiTooltip\": \"Additional context for the prompt (Tokens not supported)\"\n          }\n        },\n        \"dataType\": \"text\",\n        \"hasPicklist\": false,\n        \"enforcePicklistSelect\": false\n      },\n      {\n        \"apiName\": \"model\",\n        \"description\": \"Select which Open AI model to use\",\n        \"i18n\": {\n          \"en_US\": {\n            \"name\": \"Model\",\n            \"description\": \"Select which Open AI model to use.\",\n            \"uiTooltip\": \"Select which Open AI model to use\"\n          }\n        },\n        \"dataType\": \"string\",\n        \"picklistUrl\": \"https://openai.kapturall.com/getPicklist\",\n        \"hasPicklist\": true,\n        \"enforcePicklistSelect\": true\n      },\n      {\n        \"apiName\": \"returnField\",\n        \"description\": \"API name of field to store response\",\n        \"uiTooltip\": \"API name of field to store response\",\n        \"i18n\": {\n          \"en_US\": {\n            \"name\": \"Return Field\",\n            \"description\": \"Additional context for the prompt\",\n            \"uiTooltip\": \"Additional context for the prompt (Tokens not supported)\"\n          }\n        },\n        \"dataType\": \"string\",\n        \"hasPicklist\": true,\n        \"enforcePicklistSelect\": true\n      },\n      {\n        \"apiName\": \"temperature\",\n        \"description\": \"Creativity level from 0-100\",\n        \"uiTooltip\": \"OpenAI models are non-deterministic, meaning that identical inputs can yield different outputs. Setting temperature to 0 will make the outputs mostly deterministic, but a small amount of variability may remain.\",\n        \"i18n\": {\n          \"en_US\": {\n            \"name\": \"Temperature (0-100)\",\n            \"description\": \"Creativity level from 0-100\",\n            \"uiTooltip\": \"OpenAI models are non-deterministic, meaning that identical inputs can yield different outputs. Setting temperature to 0 will make the outputs mostly deterministic, but a small amount of variability may remain.\"\n          }\n        },\n        \"dataType\": \"integer\",\n        \"hasPicklist\": false,\n        \"enforcePicklistSelect\": false\n      },\n      {\n        \"apiName\": \"context\",\n        \"description\": \"Additional context for the prompt\",\n        \"uiTooltip\": \"Additional context for the prompt\",\n        \"i18n\": {\n          \"en_US\": {\n            \"name\": \"Additional Context\",\n            \"description\": \"Additional context for the prompt\",\n            \"uiTooltip\": \"Additional context for the prompt\"\n          }\n        },\n        \"dataType\": \"text\",\n        \"hasPicklist\": false,\n        \"enforcePicklistSelect\": false\n      }\n    ],\n    \"fields\": [],\n    \"userDrivenMapping\": false,\n    \"leadContext\": true,\n    \"programContext\": true,\n    \"campaignContext\": true,\n    \"triggerContext\": true,\n    \"programMemberContext\": true,\n    \"subscriptionContext\": true,\n    \"myTokenContext\": [\n      \"context\"\n    ]\n  },\n  \"callbackPayloadDef\": {\n    \"attributes\": [\n      {\n        \"apiName\": \"response\",\n        \"i18n\": {\n          \"en_US\": {\n            \"name\": \"OpenAI Response\",\n            \"description\": \"The response given from the OpenAI API\",\n            \"uiTooltip\": \"\"\n          }\n        },\n        \"dataType\": \"text\"\n      },\n      {\n        \"apiName\": \"openai_success\",\n        \"i18n\": {\n          \"en_US\": {\n            \"name\": \"Request Success\",\n            \"description\": \"Boolean indicator of if the request was successful\",\n            \"uiTooltip\": \"\"\n          }\n        },\n        \"dataType\": \"boolean\"\n      },\n      {\n        \"apiName\": \"message\",\n        \"i18n\": {\n          \"en_US\": {\n            \"name\": \"Message\",\n            \"description\": \"Additional data about the request\",\n            \"uiTooltip\": \"\"\n          }\n        },\n        \"dataType\": \"text\"\n      },\n      {\n        \"apiName\": \"computedPrompt\",\n        \"i18n\": {\n          \"en_US\": {\n            \"name\": \"Prompt\",\n            \"description\": \"Prompt Sets\",\n            \"uiTooltip\": \"\"\n          }\n        },\n        \"dataType\": \"text\"\n      }\n    ],\n    \"fields\": [],\n    \"userDrivenMapping\": true\n  },\n  \"cabundle\": null,\n  \"providerInstruction\": true\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.2,
+      "position": [
+        208,
+        128
+      ],
+      "id": "1a28ce82-6f1c-420d-b8e7-0075c6461ee4",
+      "name": "getServiceDefintion"
+    },
+    {
+      "parameters": {
+        "options": {
+          "reset": false
+        }
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        512,
+        736
+      ],
+      "id": "a3b4eaad-0240-4be3-abfb-845590c1beda",
+      "name": "Loop Over Items",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"title\": \"OpenAI flow action by Kapturall\",\n  \"version\": \"1.0.1\",\n  \"description\": \"Sends a prompt to an OpenAI model and receive the response.  This flow action uses the OpenAI Chat completions endpoint (https://platform.openai.com/docs/guides/gpt/chat-completions-api)\",\n  \"brandIcon\" : \"https://openai.flowsteps.io/brandIcon\",\n  \"serviceIcon\" : \"https://openai.flowsteps.io/serviceIcon\",\n  \"provider\": \"Kapturall\",\n  \"server_url\": \"\",\n  \"apiName\": \"ssfs-openai-2.2\",\n  \"support\": {\n    \"email\": \"support@kapturall.com\",\n    \"url\": \"https://openai.kapturall.com/support.html\"\n  },\n  \"apiKey\": {\n    \"type\": \"apiKey\",\n    \"name\": \"x-api-key\",\n    \"in\": \"header\",\n    \"value\" : \"abc123\"\n  },\n  \"flow\": {\n    \"name\": \"Send OpenAI Prompt\",\n    \"filterName\": \"OpenAI prompt was sent\",\n    \"triggerName\": \"OpenAI prompt is sent\",\n    \"primaryAttribute\": \"prompt\",\n    \"headers\": [],\n    \"userDrivenMapping\": false,\n    \"globalAttributes\": [\n      {\n        \"apiName\": \"openai_token\",\n        \"i18n\": {\n          \"en_US\": {\n            \"name\": \"OpenAI API Key\",\n            \"description\": \"Your OpenAI API Key\"\n          }\n        },\n        \"dataType\": \"string\",\n        \"hasPicklist\": false\n      }\n    ],\n    \"attributes\": [\n      {\n        \"apiName\": \"prompt\",\n        \"description\": \"Prompt to send to OpenAI\",\n        \"uiTooltip\": \"Prompt to send to OpenAI\",\n        \"i18n\": {\n          \"en_US\": {\n            \"name\": \"Prompt\",\n            \"description\": \"Additional context for the prompt\",\n            \"uiTooltip\": \"Additional context for the prompt (Tokens not supported)\"\n          }\n        },\n        \"dataType\": \"text\",\n        \"hasPicklist\": false,\n        \"enforcePicklistSelect\": false\n      },\n      {\n        \"apiName\": \"model\",\n        \"description\": \"Select which Open AI model to use\",\n        \"i18n\": {\n          \"en_US\": {\n            \"name\": \"Model\",\n            \"description\": \"Select which Open AI model to use.\",\n            \"uiTooltip\": \"Select which Open AI model to use\"\n          }\n        },\n        \"dataType\": \"string\",\n        \"picklistUrl\": \"https://openai.kapturall.com/getPicklist\",\n        \"hasPicklist\": true,\n        \"enforcePicklistSelect\": true\n      },\n      {\n        \"apiName\": \"returnField\",\n        \"description\": \"API name of field to store response\",\n        \"uiTooltip\": \"API name of field to store response\",\n        \"i18n\": {\n          \"en_US\": {\n            \"name\": \"Return Field\",\n            \"description\": \"Additional context for the prompt\",\n            \"uiTooltip\": \"Additional context for the prompt (Tokens not supported)\"\n          }\n        },\n        \"dataType\": \"string\",\n        \"hasPicklist\": true,\n        \"enforcePicklistSelect\": true\n      },\n      {\n        \"apiName\": \"temperature\",\n        \"description\": \"Creativity level from 0-100\",\n        \"uiTooltip\": \"OpenAI models are non-deterministic, meaning that identical inputs can yield different outputs. Setting temperature to 0 will make the outputs mostly deterministic, but a small amount of variability may remain.\",\n        \"i18n\": {\n          \"en_US\": {\n            \"name\": \"Temperature (0-100)\",\n            \"description\": \"Creativity level from 0-100\",\n            \"uiTooltip\": \"OpenAI models are non-deterministic, meaning that identical inputs can yield different outputs. Setting temperature to 0 will make the outputs mostly deterministic, but a small amount of variability may remain.\"\n          }\n        },\n        \"dataType\": \"integer\",\n        \"hasPicklist\": false,\n        \"enforcePicklistSelect\": false\n      },\n      {\n        \"apiName\": \"context\",\n        \"description\": \"Additional context for the prompt\",\n        \"uiTooltip\": \"Additional context for the prompt\",\n        \"i18n\": {\n          \"en_US\": {\n            \"name\": \"Additional Context\",\n            \"description\": \"Additional context for the prompt\",\n            \"uiTooltip\": \"Additional context for the prompt\"\n          }\n        },\n        \"dataType\": \"text\",\n        \"hasPicklist\": false,\n        \"enforcePicklistSelect\": false\n      }\n    ],\n    \"fields\": [],\n    \"leadContext\": true,\n    \"programContext\": true,\n    \"campaignContext\": true,\n    \"triggerContext\": true,\n    \"programMemberContext\": true,\n    \"subscriptionContext\": true,\n    \"myTokenContext\": [\n      \"context\"\n    ]\n  },\n  \"callback\": {\n    \"userDrivenMapping\": true,\n    \"attributes\": [\n      {\n        \"apiName\": \"response\",\n        \"i18n\": {\n          \"en_US\": {\n            \"name\": \"OpenAI Response\",\n            \"description\": \"The response given from the OpenAI API\",\n            \"uiTooltip\": \"\"\n          }\n        },\n        \"dataType\": \"text\"\n      },\n      {\n        \"apiName\": \"openai_success\",\n        \"i18n\": {\n          \"en_US\": {\n            \"name\": \"Request Success\",\n            \"description\": \"Boolean indicator of if the request was successful\",\n            \"uiTooltip\": \"\"\n          }\n        },\n        \"dataType\": \"boolean\"\n      },\n      {\n        \"apiName\": \"message\",\n        \"i18n\": {\n          \"en_US\": {\n            \"name\": \"Message\",\n            \"description\": \"Additional data about the request\",\n            \"uiTooltip\": \"\"\n          }\n        },\n        \"dataType\": \"text\"\n      },\n      {\n        \"apiName\": \"computedPrompt\",\n        \"i18n\": {\n          \"en_US\": {\n            \"name\": \"Prompt\",\n            \"description\": \"Prompt Sets\",\n            \"uiTooltip\": \"\"\n          }\n        },\n        \"dataType\": \"text\"\n      }\n    ],\n    \"fields\": []\n  },\n  \"picklist\": {\n    \"model\": [\n      {\n        \"displayValue\": {\n          \"en_US\": \"gpt-3.5-turbo\"\n        },\n        \"submittedValue\": \"gpt-3.5-turbo\"\n      },\n      {\n        \"displayValue\": {\n          \"en_US\": \"gpt-4\"\n        },\n        \"submittedValue\": \"gpt-4\"\n      }\n    ]\n  }\n}",
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -448,
+        512
+      ],
+      "id": "d87b590d-ce31-4468-ba06-868d4a35f9ec",
+      "name": "SSFS Config"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"openapi\": \"3.0.1\",\n  \"info\": {\n    \"title\": \"{{ $json.title }}\",\n    \"x-providerName\": \"{{ $json.provider }}\",\n    \"description\": \"{{ $json.description }}\",\n    \"termsOfService\": \"https://documents.marketo.com/legal/eusa/us/2012-08-28/\",\n    \"license\": {\n      \"name\": \"MIT\",\n      \"url\": \"https://github.com/adobe/Marketo-SSFS-Service-Provider-Interface/blob/master/LICENSE\"\n    },\n    \"version\": \"1.0.0\",\n    \"x-schemaVersion\": \"1.0.0\",\n    \"x-supportContact\": \"{{ $json.support.email }}\"\n  },\n  \"tags\": [\n    {\n      \"name\": \"flow action\",\n      \"description\": \"\"\n    }\n  ],\n  \"security\": [\n    {\n      \"apiKey\": []\n    }\n  ],\n  \"paths\": {\n    \"/submitAsyncAction\": {\n      \"description\": \"\",\n      \"post\": {\n        \"tags\": [\n          \"flow action\"\n        ],\n        \"operationId\": \"\",\n        \"requestBody\": {\n          \"required\": true,\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/async\"\n              }\n            }\n          }\n        },\n        \"callbacks\": {\n          \"selfServiceFlowComplete\": {\n            \"{$request.body#/flowComplete}\": {\n              \"post\": {\n                \"parameters\": [\n                  {\n                    \"in\": \"header\",\n                    \"name\": \"x-functions-key\",\n                    \"description\": \"IO Gateway Key.\",\n                    \"schema\": {\n                      \"type\": \"string\"\n                    },\n                    \"required\": true\n                  },\n                  {\n                    \"in\": \"header\",\n                    \"name\": \"x-callback-token\",\n                    \"description\": \"Token sent by Marketo during submitAsyncAction invocation.\",\n                    \"schema\": {\n                      \"type\": \"string\"\n                    },\n                    \"required\": true\n                  }\n                ],\n                \"requestBody\": {\n                  \"description\": \"Flow Action return data for post processing\",\n                  \"content\": {\n                    \"application/json\": {\n                      \"schema\": {\n                        \"$ref\": \"#/components/schemas/flowCallBack\"\n                      }\n                    }\n                  }\n                },\n                \"responses\": {\n                  \"404\": {\n                    \"description\": \"Not Found\",\n                    \"content\": {}\n                  },\n                  \"405\": {\n                    \"description\": \"Invalid input\",\n                    \"content\": {}\n                  }\n                }\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"201\": {\n            \"description\": \"Accepted:\\n- Webhook created\"\n          },\n          \"400\": {\n            \"description\": \"Bad Request:\\n- Expected parameters were missing from the request or were invalid or Invalid document structure\"\n          },\n          \"401\": {\n            \"description\": \"Unauthorized:\\n- The API credentials which Marketo has are not authorized to undertake the action\"\n          },\n          \"403\": {\n            \"description\": \"Forbidden:\\n- Authentication Failed\"\n          },\n          \"429\": {\n            \"description\": \"Too Many Requests:\\n- The service has received too many requests and should retry w/ an appropriate strategy\"\n          },\n          \"500\": {\n            \"description\": \"Internal Server Error:\\n- Invoking the service failed for an unknown reason\"\n          }\n        }\n      }\n    },\n    \"/getServiceDefinition\": {\n      \"description\": \"Defines metadata used to exchange data between Marketo and service provider\",\n      \"get\": {\n        \"summary\": \"Returns a service definition for user install\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Service Install Metadata\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/serviceDefinition\"\n                }\n              }\n            }\n          }\n        }\n      }\n    },\n    \"/status\": {\n      \"description\": \"Returns status information, notifications and deprecation info from the service.  Polled nightly by Marketo\",\n      \"get\": {\n        \"summary\": \"Returns status information for the service\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Status info of Service\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/serviceStatus\"\n                }\n              }\n            }\n          }\n        }\n      }\n    },\n    \"/getPicklist\": {\n      \"description\": \"Returns lists of choices for a flow or global parameter.\",\n      \"post\": {\n        \"summary\": \"Returns lists of choices for a flow or global parameter.\",\n        \"requestBody\": {\n          \"required\": true,\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/getPicklistRequest\"\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Returns lists of choices for a flow or global parameter.\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/picklistObject\"\n                }\n              }\n            }\n          }\n        }\n      }\n    },\n    \"/providerInstructions\": {\n      \"description\": \"Returns html document to embed how-to instructions for any required configuration which is not covered by automated installation\",\n      \"get\": {\n        \"summary\": \"Returns how-to html\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"content\": {\n              \"text/html\": {\n                \"schema\": {\n                  \"type\": \"string\"\n                }\n              }\n            }\n          }\n        }\n      }\n    },\n    \"/brandIcon\": {\n      \"description\": \"Returns an icon to represent brand in Service Providers menu\",\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"content\": {\n              \"image/*\": {\n                \"schema\": {\n                  \"type\": \"string\",\n                  \"format\": \"binary\"\n                }\n              }\n            }\n          }\n        }\n      }\n    },\n    \"/serviceIcon\": {\n      \"description\": \"Returns an icon to represent brand in Smart Campaign Flow Pallette, and in Service Providers menu\",\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"description\": \"OK\",\n            \"content\": {\n              \"image/*\": {\n                \"schema\": {\n                  \"type\": \"string\",\n                  \"format\": \"binary\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"async\": {\n        \"required\": [\n          \"campaignId\",\n          \"callbackUrl\"\n        ],\n        \"type\": \"object\",\n        \"properties\": {\n          \"token\": {\n            \"description\": \"One-time use access token for submitting callback data to Marketo\",\n            \"type\": \"string\"\n          },\n          \"batchid\": {\n            \"description\": \"ID of the marketo campaign run invoking the service\",\n            \"type\": \"string\"\n          },\n          \"apiCallBackKey\": {\n            \"description\": \"API key to be used in the callback header\",\n            \"type\": \"string\"\n          },\n          \"campaignId\": {\n            \"description\": \"ID of the campaign invoking the service\",\n            \"type\": \"integer\",\n            \"format\": \"int32\"\n          },\n          \"callbackUrl\": {\n            \"description\": \"URL of the callback to submit data back to\",\n            \"type\": \"string\",\n            \"format\": \"uri\",\n            \"example\": \"https://adobe.com/send/callback/here\"\n          },\n          \"context\": {\n            \"$ref\": \"#/components/schemas/context\"\n          },\n          \"objectData\": {\n            \"type\": \"array\",\n            \"items\": {\n              \"$ref\": \"#/components/schemas/objectData\"\n            }\n          }\n        }\n      },\n      \"context\": {\n        \"description\": \"Object containing contexts to be used for processing\",\n        \"type\": \"object\",\n        \"required\": [\n          \"subscription\"\n        ],\n        \"properties\": {\n          \"subscription\": {\n            \"$ref\": \"#/components/schemas/subscription\"\n          },\n          \"admin\": {\n            \"$ref\": \"#/components/schemas/admin\"\n          },\n          \"campaign\": {\n            \"$ref\": \"#/components/schemas/campaign\"\n          },\n          \"program\": {\n            \"$ref\": \"#/components/schemas/program\"\n          }\n        }\n      },\n      \"subscription\": {\n        \"description\": \"Identifiers for Marketo subscription.  Can be used to locate invoking instance for REST API calls\",\n        \"type\": \"object\",\n        \"required\": [\n          \"munchkinId\"\n        ],\n        \"properties\": {\n          \"munchkinId\": {\n            \"type\": \"string\",\n            \"example\": \"337-INS-529\"\n          },\n          \"prefix\": {\n            \"type\": \"string\",\n            \"example\": \"customerPrefix\"\n          },\n          \"crmSyncStatus\": {\n            \"description\": \"Whether native sync has been enabled and whether it is active\",\n            \"type\": \"string\"\n          }\n        }\n      },\n      \"admin\": {\n        \"description\": \"Global configuration data as defined by Marketo administrator\",\n        \"type\": \"object\",\n        \"additionalProperties\": true\n      },\n      \"headers\": {\n        \"description\": \"List of headers to be sent in invocation.  Inputs must be added by users in the UI\",\n        \"additionalProperties\": {\n          \"$ref\": \"#/components/schemas/headerAttributeObject\"\n        }\n      },\n      \"campaign\": {\n        \"description\": \"Data related to the invoking Smart Campaign\",\n        \"type\": \"object\",\n        \"properties\": {\n          \"commLimitEnabled\": {\n            \"description\": \"Whether communication limits are enabled for invoking campaign\",\n            \"type\": \"boolean\"\n          },\n          \"description\": {\n            \"description\": \"Description of invoking campaign from inside Marketo\",\n            \"type\": \"string\"\n          },\n          \"flowId\": {\n            \"description\": \"Integer id of flow inside of campaign\",\n            \"type\": \"number\"\n          },\n          \"folderId\": {\n            \"description\": \"Integer id of parent folder\",\n            \"type\": \"number\"\n          },\n          \"folderName\": {\n            \"type\": \"string\"\n          },\n          \"id\": {\n            \"description\": \"Id of the invoking campaign\",\n            \"type\": \"number\"\n          },\n          \"name\": {\n            \"type\": \"string\"\n          },\n          \"parentProgramId\": {\n            \"description\": \"Id of parent program if available\",\n            \"type\": \"number\"\n          },\n          \"smartListId\": {\n            \"description\": \"Id of smart list belonging to the invoking campaign\",\n            \"type\": \"number\"\n          },\n          \"status\": {\n            \"type\": \"string\"\n          },\n          \"type\": {\n            \"type\": \"string\"\n          },\n          \"workspaceId\": {\n            \"type\": \"number\"\n          },\n          \"workspaceName\": {\n            \"type\": \"string\"\n          }\n        }\n      },\n      \"program\": {\n        \"description\": \"Data related to the parent program of the invoking smart campaign.  May be empty even if required by service provider, if the smart campaign is not housed within a program\",\n        \"type\": \"object\",\n        \"properties\": {\n          \"channelName\": {\n            \"type\": \"string\"\n          },\n          \"description\": {\n            \"type\": \"string\"\n          },\n          \"id\": {\n            \"type\": \"number\"\n          },\n          \"name\": {\n            \"type\": \"string\"\n          },\n          \"status\": {\n            \"type\": \"string\"\n          },\n          \"type\": {\n            \"type\": \"string\"\n          },\n          \"createdAt\": {\n            \"type\": \"string\"\n          },\n          \"updatedAt\": {\n            \"type\": \"string\"\n          }\n        }\n      },\n      \"flowStepContext\": {\n        \"description\": \"Data related to specific invocation of the flow action.  Property list is defined by 'flow' type service attributes in Service Definition.  Values will be based on inputs given by Marketo users in Smart Campaign UI\",\n        \"type\": \"object\",\n        \"additionalProperties\": true\n      },\n      \"myTokenContext\": {\n        \"description\": \"List of tokens matching the list requested in service definition\",\n        \"type\": \"object\",\n        \"additionalProperties\": true\n      },\n      \"programMemberContext\": {\n        \"description\": \"Data related to program membership, including status, success, and program-member custom field data.  May be empty even if required if the invoking smart campaign is not housed within a program, or the lead record has not been made a member of the program\",\n        \"type\": \"object\",\n        \"properties\": {\n          \"status\": {\n            \"description\": \"Status in program.  Possible values are defined in the program's channel\",\n            \"type\": \"string\",\n            \"example\": \"Registered\"\n          },\n          \"id\": {\n            \"type\": \"number\",\n            \"format\": \"int64\",\n            \"example\": 100000\n          },\n          \"membershipDate\": {\n            \"description\": \"Date when lead became a program member\",\n            \"type\": \"string\",\n            \"format\": \"date-time\"\n          },\n          \"reachedSuccess\": {\n            \"description\": \"Whether the lead is in a status with the success property true, as defined in the program Channel\",\n            \"type\": \"boolean\"\n          },\n          \"reachedSuccessDate\": {\n            \"description\": \"Date when lead first reached a success status in the program\",\n            \"type\": \"string\",\n            \"format\": \"date-time\"\n          },\n          \"pmcf\": {\n            \"description\": \"Object containing Program Member Custom fields\",\n            \"type\": \"object\",\n            \"additionalProperties\": true\n          }\n        }\n      },\n      \"triggeringContext\": {\n        \"description\": \"Data related to the event which triggered the invoking campaign\",\n        \"type\": \"object\",\n        \"properties\": {\n          \"name\": {\n            \"type\": \"string\",\n            \"description\": \"Name of the primary asset which triggered the invoking campaign\",\n            \"example\": \"Lead-gen Form\"\n          },\n          \"triggerName\": {\n            \"type\": \"string\",\n            \"description\": \"Type of event which triggered the invoking campaign\",\n            \"example\": \"Filled Out Form\"\n          }\n        }\n      },\n      \"objectContext\": {\n        \"oneOf\": [\n          {\n            \"$ref\": \"#/components/schemas/leadData\"\n          }\n        ],\n        \"discriminator\": {\n          \"propertyName\": \"authType\",\n          \"mapping\": {\n            \"lead\": \"#/components/schemas/leadData\"\n          }\n        }\n      },\n      \"objectData\": {\n        \"description\": \"Contains lead-data and lead-specific context.  Submitted by Marketo to service.\",\n        \"required\": [\n          \"objectType\",\n          \"objectContext\"\n        ],\n        \"type\": \"object\",\n        \"properties\": {\n          \"objectType\": {\n            \"type\": \"string\",\n            \"example\": \"lead\",\n            \"enum\": [\n              \"lead\"\n            ]\n          },\n          \"objectContext\": {\n            \"$ref\": \"#/components/schemas/objectContext\"\n          },\n          \"flowStepContext\": {\n            \"$ref\": \"#/components/schemas/flowStepContext\"\n          },\n          \"programMemberContext\": {\n            \"$ref\": \"#/components/schemas/programMemberContext\"\n          },\n          \"triggeringContext\": {\n            \"$ref\": \"#/components/schemas/triggeringContext\"\n          },\n          \"myTokenContext\": {\n            \"$ref\": \"#/components/schemas/myTokenContext\"\n          }\n        }\n      },\n      \"callbackData\": {\n        \"type\": \"object\",\n        \"required\": [\n          \"leadData\"\n        ],\n        \"properties\": {\n          \"activityData\": {\n            \"description\": \"Object used to submit activity data for a single lead.  Attributes defined as 'response' attributes may be included to write to the activity resulting from invocation\",\n            \"type\": \"object\",\n            \"properties\": {\n              \"success\": {\n                \"type\": \"boolean\",\n                \"description\": \"Whether the operation succeeded for this record\"\n              },\n              \"reason\": {\n                \"type\": \"string\",\n                \"description\": \"What occurred to cause the operation to fail\",\n                \"example\": \"No value found for search parameters, Key: country Value: Cascadia\"\n              },\n              \"errorCode\": {\n                \"type\": \"string\",\n                \"description\": \"Provide an easy-to-reference error code in the case of failure\",\n                \"example\": \"LOOKUP_VALUE_NOT_FOUND\"\n              }\n            },\n            \"additionalProperties\": true\n          },\n          \"leadData\": {\n            \"$ref\": \"#/components/schemas/leadData\"\n          }\n        }\n      },\n      \"leadData\": {\n        \"type\": \"object\",\n        \"required\": [\n          \"id\"\n        ],\n        \"properties\": {\n          \"id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\"\n          }\n        },\n        \"additionalProperties\": true,\n        \"description\": \"Object used to submit data back to lead record.  Included fields must be included in service definition unless userDrivenMapping is false.  Fields must also be mapped and active in Incoming Fields menu for write to succeed.\"\n      },\n      \"flowCallBack\": {\n        \"required\": [\n          \"munchkinId\"\n        ],\n        \"type\": \"object\",\n        \"properties\": {\n          \"munchkinId\": {\n            \"type\": \"string\",\n            \"example\": \"123-ABD-456\"\n          },\n          \"defaultValues\": {\n            \"description\": \"If a value for a given record is not set in the objectData array, then it will default to the value set in the corresponding defaults object here if there is one\",\n            \"type\": \"object\",\n            \"properties\": {\n              \"leadDefaults\": {\n                \"description\": \"Default values for lead fields\",\n                \"type\": \"object\",\n                \"additionalProperties\": true\n              },\n              \"activityDefaults\": {\n                \"description\": \"Default values for activity attributes\",\n                \"type\": \"object\",\n                \"additionalProperties\": true\n              }\n            }\n          },\n          \"errorCode\": {\n            \"type\": \"string\",\n            \"description\": \"If set, no objectData will be processed, and an error will be logged with the given errorCode and errorMessage\",\n            \"example\": \"LOOKUP_VALUE_NOT_FOUND\"\n          },\n          \"errorMessage\": {\n            \"type\": \"string\",\n            \"description\": \"Message to be logged if errorCode was set.\",\n            \"example\": \"No value found for search parameters, Key: country Value: Cascadia\"\n          },\n          \"objectData\": {\n            \"description\": \"List of lead and activity data to write back to Marketo\",\n            \"type\": \"array\",\n            \"items\": {\n              \"$ref\": \"#/components/schemas/callbackData\"\n            }\n          }\n        }\n      },\n      \"serviceDefinition\": {\n        \"description\": \"Used to describe configuration and metadata including fields expected during invocation & callback, user inputs on Marketo-side, and other important metadata\",\n        \"type\": \"object\",\n        \"required\": [\n          \"apiName\",\n          \"i18n\",\n          \"primaryAttribute\",\n          \"invocationPayloadDef\",\n          \"callbackPayloadDef\"\n        ],\n        \"properties\": {\n          \"apiName\": {\n            \"description\": \"Default identifier for service and activity.  Users installing multiple service with the same apiName will be prompted to resolve collision by inputting a custom name during installation.  Values 'success', 'reason', and 'errorCode' are always included in activityData and may not be declared here, see '#components/schemas/callbackData'.\",\n            \"type\": \"string\",\n            \"example\": \"lookupTable\"\n          },\n          \"i18n\": {\n            \"description\": \"Used to provide internationalized strings\",\n            \"type\": \"object\",\n            \"properties\": {\n              \"en_US\": {\n                \"$ref\": \"#/components/schemas/serviceI18nObject\"\n              }\n            }\n          },\n          \"caBundle\": {\n            \"description\": \"Location of CA bundle.  Used if your service's SSL certificate chain is not know to Marketo API clients\",\n            \"type\": \"string\",\n            \"format\": \"uri\",\n            \"example\": \"https://serviceprovider.com/get/caBundle\"\n          },\n          \"primaryAttribute\": {\n            \"type\": \"string\",\n            \"description\": \"API name of the attribute that describes the primary asset. This must match an attribute from the flow attribute list and *cannot* match an attribute from the callback attribute list.\"\n          },\n          \"invocationPayloadDef\": {\n            \"$ref\": \"#/components/schemas/invocationPayloadDefObject\"\n          },\n          \"callbackPayloadDef\": {\n            \"$ref\": \"#/components/schemas/callbackPayloadDefObject\"\n          }\n        }\n      },\n      \"serviceI18nObject\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"name\": {\n            \"type\": \"string\",\n            \"example\": \"Send OpenAI Prompt\"\n          },\n          \"filterName\": {\n            \"type\": \"string\",\n            \"example\": \"OpenAI prompt was sent\"\n          },\n          \"triggerName\": {\n            \"type\": \"string\",\n            \"example\": \"OpenAI prompt is sent\"\n          },\n          \"description\": {\n            \"type\": \"string\"\n          }\n        }\n      },\n      \"invocationPayloadDefObject\": {\n        \"description\": \"Describes lead field mappings, flow & global attributes, and contexts required by the service during invocation\",\n        \"type\": \"object\",\n        \"properties\": {\n          \"globalAttributes\": {\n            \"description\": \"Describes expected global user inputs.  Global attributes can be set during installation or from the Service Provider admin menu.  Global attributes will be included in every invocation if set.\",\n            \"type\": \"array\",\n            \"items\": {\n              \"$ref\": \"#/components/schemas/invocationAttributeObject\"\n            }\n          },\n          \"flowAttributes\": {\n            \"description\": \"Describes expected flow step inputs.  Flow attributes are set for each individual instance of a flow step and are sent per-lead in the flowStepContext object.\",\n            \"type\": \"array\",\n            \"items\": {\n              \"$ref\": \"#/components/schemas/invocationAttributeObject\"\n            }\n          },\n          \"fields\": {\n            \"description\": \"Field mappings needed for invocation.  Fields which are mapped in Marketo are sent in the leadContext object.  If userDrivenMapping is 'true', the contents of this array will be ignored\",\n            \"type\": \"array\",\n            \"items\": {\n              \"$ref\": \"#/components/schemas/invocationFieldMapping\"\n            }\n          },\n          \"headers\": {\n            \"description\": \"List of headers to be included in invocations of /async.  Headers defined here can be populated in the UI by end users\",\n            \"type\": \"array\",\n            \"items\": {\n              \"$ref\": \"#/components/schemas/headerAttributeObject\"\n            }\n          },\n          \"userDrivenMapping\": {\n            \"description\": \"Indicates whether the service will provide a pre-defined list of mappings.  If 'true', 'fields' will be ignored, and mappings must be added manually by users.\",\n            \"type\": \"boolean\"\n          },\n          \"programContext\": {\n            \"type\": \"boolean\",\n            \"description\": \"true if Service Provider needs to access program context\"\n          },\n          \"campaignContext\": {\n            \"type\": \"boolean\",\n            \"description\": \"true if Service Provider needs to access campaign context\"\n          },\n          \"triggerContext\": {\n            \"type\": \"boolean\",\n            \"description\": \"true if Service Provider needs to access trigger context\"\n          },\n          \"programMemberContext\": {\n            \"type\": \"boolean\",\n            \"description\": \"true if Service Provider needs to access member context\"\n          },\n          \"subscriptionContext\": {\n            \"type\": \"boolean\",\n            \"description\": \"true if Service Provider needs to access subscription context\"\n          },\n          \"myTokenContext\": {\n            \"description\": \"\",\n            \"type\": \"array\",\n            \"items\": [\n              \"test\"\n            ],\n            \"example\": [\n              \"Event Date\",\n              \"Event Address\"\n            ]\n          }\n        }\n      },\n      \"callbackPayloadDefObject\": {\n        \"description\": \"Describes lead field mappings, and response attributes which can be written to during the callback\",\n        \"type\": \"object\",\n        \"properties\": {\n          \"attributes\": {\n            \"type\": \"array\",\n            \"items\": {\n              \"$ref\": \"#/components/schemas/attributeObject\"\n            }\n          },\n          \"fields\": {\n            \"type\": \"array\",\n            \"items\": {\n              \"$ref\": \"#/components/schemas/fieldMapping\"\n            }\n          },\n          \"userDrivenMapping\": {\n            \"description\": \"Indicates whether the service will provide a pre-defined list of mappings.  If 'true', 'fields' will be ignored, and mappings must be added manually by users.\",\n            \"type\": \"boolean\"\n          }\n        }\n      },\n      \"invocationAttributeObject\": {\n        \"allOf\": [\n          {\n            \"$ref\": \"#/components/schemas/attributeObject\"\n          },\n          {\n            \"$ref\": \"#/components/schemas/picklistAttribute\"\n          }\n        ]\n      },\n      \"picklistAttribute\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"enforcePicklistSelect\": {\n            \"type\": \"boolean\",\n            \"description\": \"Whether or not the attribute value has to be exact match of an entry from the picklist.  Ignored if hasPicklist is false\"\n          },\n          \"hasPicklist\": {\n            \"type\": \"boolean\",\n            \"description\": \"Whether picklist choices are provided for this attribute.\"\n          }\n        }\n      },\n      \"attributeObject\": {\n        \"type\": \"object\",\n        \"required\": [\n          \"apiName\",\n          \"i18n\",\n          \"dataType\"\n        ],\n        \"properties\": {\n          \"apiName\": {\n            \"type\": \"string\",\n            \"example\": \"keyValue\"\n          },\n          \"i18n\": {\n            \"type\": \"object\",\n            \"required\": [\n              \"en_US\"\n            ],\n            \"properties\": {\n              \"en_US\": {\n                \"$ref\": \"#/components/schemas/attributeI18nObject\"\n              }\n            },\n            \"additionalProperties\": {\n              \"$ref\": \"#/components/schemas/attributeI18nObject\"\n            }\n          },\n          \"dataType\": {\n            \"$ref\": \"#/components/schemas/fieldType\"\n          }\n        }\n      },\n      \"headerAttributeObject\": {\n        \"allOf\": [\n          {\n            \"$ref\": \"#/components/schemas/picklistAttribute\"\n          },\n          {\n            \"type\": \"object\",\n            \"required\": [\n              \"name\"\n            ],\n            \"properties\": {\n              \"name\": {\n                \"type\": \"string\",\n                \"description\": \"Name of the header to send\",\n                \"example\": \"x-enable-extended-logging\"\n              },\n              \"description\": {\n                \"description\": \"Used to describe purpose of the header.  Keys should be valid 2-letter language and locale codes, e.g. fr_CA, for Canadian french\",\n                \"$ref\": \"#/components/schemas/i18nString\"\n              }\n            }\n          }\n        ]\n      },\n      \"attributeI18nObject\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"name\": {\n            \"type\": \"string\",\n            \"example\": \"Key Value\"\n          },\n          \"description\": {\n            \"type\": \"string\",\n            \"example\": \"Marketo field to be used as lookup value\"\n          },\n          \"uiTooltip\": {\n            \"type\": \"string\",\n            \"example\": \"What Marketo field should be used to find the lookup value?\"\n          }\n        }\n      },\n      \"invocationFieldMapping\": {\n        \"allOf\": [\n          {\n            \"$ref\": \"#/components/schemas/fieldMapping\"\n          },\n          {\n            \"type\": \"object\",\n            \"properties\": {\n              \"required\": {\n                \"type\": \"boolean\",\n                \"description\": \"Whether or not this field is required by the service, thus required during field mapping\"\n              }\n            }\n          }\n        ]\n      },\n      \"fieldMapping\": {\n        \"type\": \"object\",\n        \"required\": [\n          \"serviceAttribute\",\n          \"description\",\n          \"dataType\"\n        ],\n        \"properties\": {\n          \"serviceAttribute\": {\n            \"description\": \"Name of the attribute as sent during invocation or callback. 'id' is reserved by system and cannot be used here.\",\n            \"type\": \"string\",\n            \"example\": \"providerFieldName\"\n          },\n          \"suggestedMarketoAttribute\": {\n            \"description\": \"If this matches the apiName and data type of a Marketo lead field, that field will be populated as the default choice for the mapping during service installation\",\n            \"type\": \"string\",\n            \"example\": \"marketoAttributeName\"\n          },\n          \"description\": {\n            \"description\": \"Description presented to the user for the mapping during installation.\",\n            \"$ref\": \"#/components/schemas/i18nString\",\n            \"properties\": {\n              \"en_US\": {\n                \"type\": \"string\",\n                \"example\": \"This is the status field that the service will use to indicate a lead's relative status in Marketo\"\n              }\n            }\n          },\n          \"dataType\": {\n            \"$ref\": \"#/components/schemas/fieldType\"\n          }\n        }\n      },\n      \"serviceStatus\": {\n        \"description\": \"Object containing status information.  Polled nightly.\",\n        \"type\": \"object\",\n        \"properties\": {\n          \"info\": {\n            \"description\": \"Array of info notifications to send to Marketo.  Logged as INFO in the service log\",\n            \"type\": \"array\",\n            \"items\": {\n              \"type\": \"string\"\n            }\n          },\n          \"warnings\": {\n            \"description\": \"Array of warning notifications to send to Marketo.  Logged as WARN in the service log\",\n            \"type\": \"array\",\n            \"items\": {\n              \"type\": \"string\"\n            }\n          },\n          \"errors\": {\n            \"description\": \"Array of error notifications to send to Marketo.  Logged as ERROR in the service log\",\n            \"type\": \"array\",\n            \"items\": {\n              \"type\": \"string\"\n            }\n          },\n          \"deprecationMessage\": {\n            \"description\": \"Message indicating that the service is being deprecated.\",\n            \"type\": \"string\"\n          },\n          \"deprecationDate\": {\n            \"description\": \"If set, and the date is in the past, Marketo will consider the service deprecated. Remove to clear deprecation status\",\n            \"type\": \"string\",\n            \"format\": \"datetime\"\n          }\n        }\n      },\n      \"picklistObject\": {\n        \"description\": \"Object containing choices for flow and global parameters\",\n        \"type\": \"object\",\n        \"required\": [\n          \"choices\"\n        ],\n        \"properties\": {\n          \"choices\": {\n            \"description\": \"List of choices to be offered in the picklist for the parameter in Marketo\",\n            \"type\": \"array\",\n            \"items\": {\n              \"$ref\": \"#/components/schemas/picklistChoice\"\n            }\n          }\n        }\n      },\n      \"picklistChoice\": {\n        \"description\": \"Object containing display value and submitted value.\",\n        \"required\": [\n          \"displayValue\",\n          \"submittedValue\"\n        ],\n        \"properties\": {\n          \"displayValue\": {\n            \"type\": \"object\",\n            \"$ref\": \"#/components/schemas/i18nString\"\n          },\n          \"submittedValue\": {\n            \"description\": \"Value which will be submitted when the choice is selected\",\n            \"example\": \"country-codes.csv\",\n            \"anyOf\": [\n              {\n                \"type\": \"boolean\"\n              },\n              {\n                \"type\": \"integer\"\n              },\n              {\n                \"type\": \"number\"\n              },\n              {\n                \"type\": \"string\"\n              }\n            ]\n          }\n        }\n      },\n      \"getPicklistRequest\": {\n        \"description\": \"Schema of requests to /getPicklist\",\n        \"required\": [\n          \"name\",\n          \"type\"\n        ],\n        \"properties\": {\n          \"name\": {\n            \"type\": \"string\",\n            \"description\": \"Name of the field to retrieve choices for\",\n            \"example\": \"table\"\n          },\n          \"type\": {\n            \"type\": \"string\",\n            \"description\": \"Type of parameter to return choices for.  Either flow or global\",\n            \"enum\": [\n              \"flow\",\n              \"global\",\n              \"header\"\n            ]\n          },\n          \"fieldMappingContext\": {\n            \"description\": \"Field mappings as configured in the invoking Marketo instance\",\n            \"type\": \"object\",\n            \"$ref\": \"#/components/schemas/fieldMappingContext\"\n          }\n        }\n      },\n      \"fieldMappingContext\": {\n        \"description\": \"Object containing lists of lead fields which are mapped and sent in the payload of invocation or callback.  May be used to generate picklist choices on the fly based on configuration in Marketo\",\n        \"type\": \"object\",\n        \"properties\": {\n          \"invocation\": {\n            \"type\": \"array\",\n            \"items\": {\n              \"$ref\": \"#/components/schemas/reqFieldMapping\"\n            }\n          },\n          \"callback\": {\n            \"type\": \"array\",\n            \"items\": {\n              \"$ref\": \"#/components/schemas/reqFieldMapping\"\n            }\n          }\n        }\n      },\n      \"reqFieldMapping\": {\n        \"description\": \"Describes lead field mappings as they are configured in the invoking marketo instance\",\n        \"type\": \"object\",\n        \"required\": [\n          \"marketoAttribute\"\n        ],\n        \"properties\": {\n          \"marketoAttribute\": {\n            \"description\": \"Marketo API name of the mapped field.  If service is configured to use User-Driven Mappings, only the Marketo Field Name will be sent\",\n            \"type\": \"string\",\n            \"example\": \"email\"\n          },\n          \"serviceAttribute\": {\n            \"description\": \"API Name of the mapped field as defined by the service.  Only sent if service does not use User-Driven Mappings\",\n            \"type\": \"string\",\n            \"example\": \"email\"\n          }\n        }\n      },\n      \"fieldType\": {\n        \"description\": \"Enum of acceptable datatypes for mappings, parameters, and activity attributes\",\n        \"type\": \"string\",\n        \"enum\": [\n          \"boolean\",\n          \"integer\",\n          \"date\",\n          \"datetime\",\n          \"email\",\n          \"float\",\n          \"score\",\n          \"string\",\n          \"url\",\n          \"text\"\n        ]\n      },\n      \"i18nString\": {\n        \"description\": \"Used to provide translations for string fields which are surfaced to end users.  Keys should be valid 2-letter language and locale codes, e.g. fr_CA, for Canadian french\",\n        \"type\": \"object\",\n        \"required\": [\n          \"en_US\"\n        ],\n        \"properties\": {\n          \"en_US\": {\n            \"type\": \"string\"\n          }\n        },\n        \"additionalProperties\": {\n          \"type\": \"string\"\n        }\n      }\n    },\n    \"securitySchemes\": {\n      \"apiKey\": {\n        \"type\": \"apiKey\",\n        \"name\": \"x-api-key\",\n        \"in\": \"header\"\n      }\n    }\n  },\n  \"servers\": [\n    {\n      \"url\": \"{{ $json.webhookUrl.replace('/:path', '') }}\",\n      \"variables\": {}\n    }\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.2,
+      "position": [
+        208,
+        -16
+      ],
+      "id": "219d144e-fd24-4247-af51-e0327a2b1924",
+      "name": "install"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4.1-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "={{ $json.flowStepContext.prompt }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        784,
+        848
+      ],
+      "id": "9f75135f-7007-416f-b334-a07ca33b29b5",
+      "name": "OpenAI2",
+      "credentials": {
+        "openAiApi": {
+          "id": "9Jvdisoq6WbNInJX",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "={{ $('SSFS Config').item.json[$('Webhook').item.json.params.path] }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        208,
+        432
+      ],
+      "id": "ba9e9804-b461-481f-854a-b17574a40944",
+      "name": "Get Icon",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"path\": \"{{ $json.params.path }}\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        1104
+      ],
+      "id": "0d1035f4-6aa6-42ea-a03e-4d08aa1e5db7",
+      "name": "Fallback"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Switch').item.json.body.callbackUrl }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-api-key",
+              "value": "={{ $('Webhook').item.json.body.apiCallBackKey }}"
+            },
+            {
+              "name": "x-callback-token",
+              "value": "={{ $('Webhook').item.json.body.token }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "munchkinId",
+              "value": "={{ $('Webhook').item.json.body.context.subscription.munchkinId }}"
+            },
+            {
+              "name": "token",
+              "value": "={{ $('Webhook').item.json.body.token }}"
+            },
+            {
+              "name": "objectData",
+              "value": "={{ $json.objectData }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        1120,
+        672
+      ],
+      "id": "31ac2b9a-5776-4ab2-8366-54a80a2feb8b",
+      "name": "Callback to Marketo"
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "destinationFieldName": "objectData",
+        "options": {
+          "includeBinaries": false
+        }
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        784,
+        672
+      ],
+      "id": "43eccb45-2182-4eed-a6b5-964ce84aa1cf",
+      "name": "Aggregate"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "body.objectData",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        352,
+        736
+      ],
+      "id": "c6a45d66-28d2-4aa2-83f7-0740595d8301",
+      "name": "Split Out"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n\"id\" : {{ $('Loop Over Items').item.json.objectContext.id }},\n\"response\" : \"{{ $json.message.content }}\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1120,
+        848
+      ],
+      "id": "373b36fd-bac8-41ea-9c42-81d358c699ac",
+      "name": "Individual Response"
+    },
+    {
+      "parameters": {
+        "respondWith": "binary",
+        "responseDataSource": "set",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.2,
+      "position": [
+        400,
+        432
+      ],
+      "id": "a463986f-5448-4953-abec-abdf23836e02",
+      "name": "Return Icon"
+    },
+    {
+      "parameters": {
+        "content": "## Core functionality \n",
+        "height": 416,
+        "width": 1040,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        320,
+        624
+      ],
+      "id": "2d0081d1-4362-4508-a92f-66f8fe7cf5d8",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\n  \"error\": \"Unauthorized\",\n  \"message\" : \"API Key is incorrect\"\n}",
+        "options": {
+          "responseCode": 403
+        }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        288,
+        1104
+      ],
+      "id": "0b4d970d-f659-4e51-8a61-23269e440d6e",
+      "name": "Unauthorized"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": false,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "ab8a9c11-9f50-493d-85bb-ad81de2cea6b",
+              "leftValue": "={{ $('Webhook').item.json.headers['x-api-key'] }}",
+              "rightValue": "={{ $('SSFS Config').item.json.apiKey.value }}",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {
+          "ignoreCase": true
+        }
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -16,
+        736
+      ],
+      "id": "7a929143-59f1-4f61-ac2b-3143a1892576",
+      "name": "Check API Key"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\n  \"message\" : \"Items being processed\"\n}",
+        "options": {
+          "responseCode": 202
+        }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        176,
+        656
+      ],
+      "id": "669f5174-c013-4747-9f7d-956e28dedfdf",
+      "name": "Respond: Accepted"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "SSFS Config",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "SSFS Config",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "install",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "getServiceDefintion",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Status",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get Icon",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get Icon",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [],
+        [
+          {
+            "node": "Check API Key",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Fallback",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "OpenAI2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SSFS Config": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI2": {
+      "main": [
+        [
+          {
+            "node": "Individual Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Icon": {
+      "main": [
+        [
+          {
+            "node": "Return Icon",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Callback to Marketo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Individual Response": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check API Key": {
+      "main": [
+        [
+          {
+            "node": "Respond: Accepted",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Unauthorized",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Respond: Accepted": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false,
+    "timeSavedMode": "fixed",
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "versionId": "e422399e-d1e8-4582-b185-8fdf40d2be81",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "edf1ac411bd4423bee61904abdc2c1ae83c717eb63dedeac3eef6a3b5aab030c"
+  },
+  "id": "pHxFa45dnbNv4Qi2",
+  "tags": []
+}
