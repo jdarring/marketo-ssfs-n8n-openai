@@ -1,5 +1,7 @@
 
-# Marketo Self-Service Flow Step (SSFS) for OpenAI via n8n
+# Marketo Self-Service Flow Step (SSFS) for OpenAI via N8N
+
+![Workflow Screenshot](screenshot.png)
 
 This repository contains an n8n workflow template designed to create a  **Marketo Self-Service Flow Step (SSFS)** . This allows you to send data from Marketo Smart Campaigns directly to OpenAI (GPT models) and write the responses back to Marketo lead fields or activity logs automatically.
 
@@ -24,12 +26,12 @@ The workflow acts as a bridge between Marketo and OpenAI, following the SSFS pro
 There are two ways to import this template into your n8n instance:
 
 * **Option A: Import from File**
-  1. Download the `n8n-workflow.json` file from this repository.
+  1. Download the [n8n-workflow.json](https://www.google.com/search?q=n8n-workflow.json "null") file from this repository.
   2. In n8n, go to the **Workflows** tab and select  **Import from File** .
 * **Option B: Import from URL**
   1. In n8n, select  **Import from URL** .
   2. Use the following jsDelivr CDN link:
-     `https://cdn.jsdelivr.net/gh/jdarring/marketo-ssfs-n8n-openai/n8n-workflow.json`
+     [https://cdn.jsdelivr.net/gh/jdarring/marketo-ssfs-n8n-openai/n8n-workflow.json](https://cdn.jsdelivr.net/gh/jdarring/marketo-ssfs-n8n-openai/n8n-workflow.json "null")
 
 ### 2. Configure OpenAI Credentials
 
