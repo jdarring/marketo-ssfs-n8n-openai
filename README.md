@@ -1,3 +1,4 @@
+
 # Marketo Self-Service Flow Step (SSFS) for OpenAI via n8n
 
 This repository contains an n8n workflow template designed to create a  **Marketo Self-Service Flow Step (SSFS)** . This allows you to send data from Marketo Smart Campaigns directly to OpenAI (GPT models) and write the responses back to Marketo lead fields or activity logs automatically.
@@ -23,11 +24,12 @@ The workflow acts as a bridge between Marketo and OpenAI, following the SSFS pro
 There are two ways to import this template into your n8n instance:
 
 * **Option A: Import from File**
-  1. Download the `SSFS_OpenAI_Workflow.json` file from this repository.
+  1. Download the `n8n-workflow.json` file from this repository.
   2. In n8n, go to the **Workflows** tab and select  **Import from File** .
 * **Option B: Import from URL**
   1. In n8n, select  **Import from URL** .
-  2. Use the jsDelivr CDN link pointing to this repo: `https://cdn.jsdelivr.net/gh/[GITHUB_USERNAME]/[REPO_NAME]/SSFS_OpenAI_Workflow.json`
+  2. Use the following jsDelivr CDN link:
+     `https://cdn.jsdelivr.net/gh/jdarring/marketo-ssfs-n8n-openai/n8n-workflow.json`
 
 ### 2. Configure OpenAI Credentials
 
@@ -50,6 +52,20 @@ The node named `SSFS Config` (a "Set" node near the start of the workflow) conta
 1. Click the **Webhook** node at the start of the workflow.
 2. Note the  **Production URL** . It usually looks like `https://your-n8n-instance.com/webhook/[UNIQUE-ID]/:path`.
 3. Click **Execute Workflow** once to prepare for the first incoming request, then set it to  **Active** .
+
+## 🔌 Endpoints
+
+The workflow uses the `:path` parameter in the n8n Webhook node to route requests based on the SSFS specification. Below are the endpoints exposed by the workflow:
+
+| Endpoint                  | Method   | Description                                                                                       |
+| ------------------------- | -------- | ------------------------------------------------------------------------------------------------- |
+| `/install`              | `GET`  | Returns the OpenAPI Swagger definition required for initial service installation in Marketo.      |
+| `/getServiceDefinition` | `GET`  | Returns the detailed metadata describing flow attributes, global attributes, and callback fields. |
+| `/status`               | `GET`  | Marketo polls this nightly to check the health and status of the service.                         |
+| `/serviceIcon`          | `GET`  | Serves the 32x32 pixel icon displayed in the Smart Campaign flow palette.                         |
+| `/brandIcon`            | `GET`  | Serves the larger brand icon displayed in the Service Providers menu.                             |
+| `/submitAsyncAction`    | `POST` | The primary endpoint where Marketo sends lead data batches for OpenAI processing.                 |
+| `/getPicklist`          | `POST` | (Optional) Returns choices for dynamic dropdown menus in the Flow Step UI.                        |
 
 ## 📥 Installation in Marketo
 
